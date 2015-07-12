@@ -8,12 +8,8 @@
 
 #import "STVAppDelegate.h"
 
-@interface STVAppDelegate ()
-
-@end
 
 @implementation STVAppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

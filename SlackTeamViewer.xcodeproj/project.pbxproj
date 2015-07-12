@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		58E1645A1B531473001B31F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E164591B531473001B31F0 /* main.m */; };
 		58E1645D1B531473001B31F0 /* STVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E1645C1B531473001B31F0 /* STVAppDelegate.m */; };
-		58E164601B531473001B31F0 /* STVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E1645F1B531473001B31F0 /* STVViewController.m */; };
+		58E164601B531473001B31F0 /* STVRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E1645F1B531473001B31F0 /* STVRootViewController.m */; };
 		58E164631B531473001B31F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58E164611B531473001B31F0 /* Main.storyboard */; };
 		58E164651B531473001B31F0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58E164641B531473001B31F0 /* Images.xcassets */; };
 		58E164681B531473001B31F0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58E164661B531473001B31F0 /* LaunchScreen.xib */; };
 		58E164741B531474001B31F0 /* SlackTeamViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E164731B531474001B31F0 /* SlackTeamViewerTests.m */; };
+		58E1647F1B531AB1001B31F0 /* STVMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E1647E1B531AB1001B31F0 /* STVMemberListViewController.m */; };
+		58E164821B532C40001B31F0 /* STVMemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E164811B532C40001B31F0 /* STVMemberDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +34,18 @@
 		58E164591B531473001B31F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		58E1645B1B531473001B31F0 /* STVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STVAppDelegate.h; sourceTree = "<group>"; };
 		58E1645C1B531473001B31F0 /* STVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STVAppDelegate.m; sourceTree = "<group>"; };
-		58E1645E1B531473001B31F0 /* STVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STVViewController.h; sourceTree = "<group>"; };
-		58E1645F1B531473001B31F0 /* STVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STVViewController.m; sourceTree = "<group>"; };
+		58E1645E1B531473001B31F0 /* STVRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STVRootViewController.h; sourceTree = "<group>"; };
+		58E1645F1B531473001B31F0 /* STVRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STVRootViewController.m; sourceTree = "<group>"; };
 		58E164621B531473001B31F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58E164641B531473001B31F0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		58E164671B531473001B31F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		58E1646D1B531474001B31F0 /* SlackTeamViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlackTeamViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E164721B531474001B31F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58E164731B531474001B31F0 /* SlackTeamViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlackTeamViewerTests.m; sourceTree = "<group>"; };
+		58E1647D1B531AB1001B31F0 /* STVMemberListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STVMemberListViewController.h; sourceTree = "<group>"; };
+		58E1647E1B531AB1001B31F0 /* STVMemberListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STVMemberListViewController.m; sourceTree = "<group>"; };
+		58E164801B532C40001B31F0 /* STVMemberDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STVMemberDetailViewController.h; sourceTree = "<group>"; };
+		58E164811B532C40001B31F0 /* STVMemberDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STVMemberDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +89,12 @@
 			children = (
 				58E1645B1B531473001B31F0 /* STVAppDelegate.h */,
 				58E1645C1B531473001B31F0 /* STVAppDelegate.m */,
-				58E1645E1B531473001B31F0 /* STVViewController.h */,
-				58E1645F1B531473001B31F0 /* STVViewController.m */,
+				58E1645E1B531473001B31F0 /* STVRootViewController.h */,
+				58E1645F1B531473001B31F0 /* STVRootViewController.m */,
+				58E1647D1B531AB1001B31F0 /* STVMemberListViewController.h */,
+				58E1647E1B531AB1001B31F0 /* STVMemberListViewController.m */,
+				58E164801B532C40001B31F0 /* STVMemberDetailViewController.h */,
+				58E164811B532C40001B31F0 /* STVMemberDetailViewController.m */,
 				58E164611B531473001B31F0 /* Main.storyboard */,
 				58E164641B531473001B31F0 /* Images.xcassets */,
 				58E164661B531473001B31F0 /* LaunchScreen.xib */,
@@ -219,9 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58E164601B531473001B31F0 /* STVViewController.m in Sources */,
+				58E164601B531473001B31F0 /* STVRootViewController.m in Sources */,
+				58E164821B532C40001B31F0 /* STVMemberDetailViewController.m in Sources */,
 				58E1645D1B531473001B31F0 /* STVAppDelegate.m in Sources */,
 				58E1645A1B531473001B31F0 /* main.m in Sources */,
+				58E1647F1B531AB1001B31F0 /* STVMemberListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

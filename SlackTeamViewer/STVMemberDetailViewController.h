@@ -1,5 +1,5 @@
 //
-//  STVAppDelegate.h
+//  STVMemberDetailViewController.h
 //  SlackTeamViewer
 //
 //  Created by Yongki Yusmanthia on 7/12/15.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface STVAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface STVMemberDetailViewController : UIViewController
 
 @end
-

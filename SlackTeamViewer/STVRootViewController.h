@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface STVViewController : UIViewController
-
+@interface STVRootViewController : UIViewController
 
 @end
 
