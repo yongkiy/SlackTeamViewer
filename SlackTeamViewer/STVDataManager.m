@@ -106,8 +106,9 @@ dispatch_queue_t g_imageLoadQueue = NULL;
 				teamMember = [STVTeamMember teamMemberWithUsername:[info valueForKey:@"username"]
 														  realName:[info valueForKey:@"realName"]
 															 title:[info valueForKey:@"title"]
-													  imageAddress:[info valueForKey:@"imageAddress"]];
-				[teamMember setImage:[info valueForKey:@"image"]];
+													  imageAddress:[info valueForKey:@"imageAddress"]
+															 email:[info valueForKey:@"email"]
+															 image:[info valueForKey:@"image"]];
 				[[self memberList] addObject:teamMember];
 
 				// Notify the listeners that new data has been loaded
@@ -185,7 +186,9 @@ dispatch_queue_t g_imageLoadQueue = NULL;
 		teamMember = [STVTeamMember teamMemberWithUsername:memberData[@"name"]
 												  realName:profileData[@"real_name"]
 													 title:profileData[@"title"]
-											  imageAddress:profileData[@"image_192"]];
+											  imageAddress:profileData[@"image_192"]
+													 email:profileData[@"email"]
+													 image:nil];
 		[[self memberList] addObject:teamMember];
 		
 		// Notify the listeners that new data has been loaded
@@ -260,8 +263,7 @@ dispatch_queue_t g_imageLoadQueue = NULL;
 	NSError *error;
 	if (![context save:&error])
 	{
-		NSLog(@"Couldn't save data! Aborting the app!");
-		assert(NO);
+		NSLog(@"Couldn't save data!");
 	}
 }
 

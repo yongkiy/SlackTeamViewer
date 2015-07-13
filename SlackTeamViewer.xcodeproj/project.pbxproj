@@ -54,6 +54,7 @@
 		58E164861B533531001B31F0 /* STVTeamMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STVTeamMember.h; sourceTree = "<group>"; };
 		58E164871B533531001B31F0 /* STVTeamMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STVTeamMember.m; sourceTree = "<group>"; };
 		58E164C21B537EAF001B31F0 /* SlackTeamViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SlackTeamViewer.xcdatamodel; sourceTree = "<group>"; };
+		58E164C41B53A25A001B31F0 /* STVConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STVConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +98,7 @@
 			children = (
 				58E1645B1B531473001B31F0 /* STVAppDelegate.h */,
 				58E1645C1B531473001B31F0 /* STVAppDelegate.m */,
+				58E164C41B53A25A001B31F0 /* STVConstants.h */,
 				58E164831B53315F001B31F0 /* STVDataManager.h */,
 				58E164841B53315F001B31F0 /* STVDataManager.m */,
 				58E164801B532C40001B31F0 /* STVMemberDetailViewController.h */,

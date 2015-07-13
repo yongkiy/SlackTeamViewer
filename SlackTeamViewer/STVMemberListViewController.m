@@ -8,6 +8,7 @@
 
 #import "STVMemberListViewController.h"
 
+#import "STVConstants.h"
 #import "STVDataManager.h"
 #import "STVTeamMember.h"
 
@@ -63,6 +64,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIdentifier forIndexPath:indexPath];
+	[cell setBackgroundColor:kBackgroundColor];
+	[[cell textLabel] setTextColor:kTextColor];
 	STVTeamMember *teamMember = [[STVDataManager defaultManager] memberAtIndex:[indexPath indexAtPosition:1]];
 	if (teamMember != nil)
 	{

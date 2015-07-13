@@ -8,15 +8,16 @@
 
 #import "STVRootViewController.h"
 
+#import "STVConstants.h"
 #import "STVDataManager.h"
-#import "STVMemberListViewController.h"
 #import "STVMemberDetailViewController.h"
+#import "STVMemberListViewController.h"
 
 @interface STVRootViewController () <STVMemberListViewControllerDelegate>
 
-@property (strong)STVMemberListViewController *memberListViewController;
-@property (strong)STVMemberDetailViewController *memberDetailViewController;
-@property (strong)UIActivityIndicatorView *spinner;
+@property (strong) STVMemberListViewController *memberListViewController;
+@property (strong) STVMemberDetailViewController *memberDetailViewController;
+@property (strong) UIActivityIndicatorView *spinner;
 
 @end
 
@@ -28,6 +29,10 @@
 {
 	[super viewDidLoad];
 
+	NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+											   kTextColor, NSForegroundColorAttributeName, nil];
+	[[[self navigationController] navigationBar] setTitleTextAttributes:navbarTitleTextAttributes];
+	
 	// Setup the member list view
 	[self setMemberListViewController:[STVMemberListViewController new]];
 	[[self memberListViewController] setDelegate:self];
