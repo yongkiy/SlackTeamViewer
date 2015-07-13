@@ -13,6 +13,8 @@
 
 #define kCellReuseIdentifier @"memberListCell"
 #define kCellRowHeight 96
+#define kRowAnimationDelay 0.3
+#define kSectionCount 1
 
 
 @implementation STVMemberListViewController
@@ -45,7 +47,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return kSectionCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -65,6 +67,10 @@
 	if (teamMember != nil)
 	{
 		[[cell textLabel] setText:[teamMember realName]];
+		if ([teamMember image] != nil)
+		{
+			[[cell imageView] setImage:[UIImage imageWithData:[teamMember image]]];
+		}
 	}
 
     return cell;
@@ -76,19 +82,34 @@
 	[[self delegate] didSelectMemberAtIndex:[indexPath indexAtPosition:1]];
 }
 
-#pragma mark - Cell update
+#pragma mark - Cell Update
 
 - (void)teamMemberDataWasLoaded:(NSNotification *)notification
 {
+	// New member data has been loaded, update the cell if we need to
 	NSNumber *row = [notification userInfo][STVMemberIndexKey];
 	UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:[row intValue] inSection:0]];
-	STVTeamMember *teamMember = [[STVDataManager defaultManager] memberAtIndex:[row intValue]];
-	[[cell textLabel] setText:[teamMember realName]];
+	if (cell != nil)
+	{
+		STVTeamMember *teamMember = [[STVDataManager defaultManager] memberAtIndex:[row intValue]];
+		[[cell textLabel] setText:[teamMember realName]];
+	}
 }
 
 - (void)teamMemberImageWasLoaded:(NSNotification *)notification
 {
-	
+	// New member image has been loaded, update the cell if we need to
+	NSNumber *row = [notification userInfo][STVMemberIndexKey];
+	UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:[row intValue] inSection:0]];
+	if (cell != nil)
+	{
+		STVTeamMember *teamMember = [[STVDataManager defaultManager] memberAtIndex:[row intValue]];
+		[UIView animateWithDuration:kRowAnimationDelay animations:^
+		 {
+			 [[cell imageView] setImage:[UIImage imageWithData:[teamMember image]]];
+			 [cell setNeedsLayout];
+		 }];
+	}
 }
 
 @end

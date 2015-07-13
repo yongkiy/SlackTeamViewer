@@ -13,10 +13,12 @@
 @property (strong) NSString *username;
 @property (strong) NSString *realName;
 @property (strong) NSString *title;
-@property (strong) UIImage *image;
+@property (strong) NSString *imageAddress;
+@property (strong) NSData *image;
 
 + (STVTeamMember *)teamMemberWithUsername:(NSString *)username
 								 realName:(NSString *)realName
-									title:(NSString *)title;
+									title:(NSString *)title
+							 imageAddress:(NSString *)imageAddress;
 
 @end

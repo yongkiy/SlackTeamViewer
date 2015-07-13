@@ -18,6 +18,7 @@
 		58E164821B532C40001B31F0 /* STVMemberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E164811B532C40001B31F0 /* STVMemberDetailViewController.m */; };
 		58E164851B53315F001B31F0 /* STVDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E164841B53315F001B31F0 /* STVDataManager.m */; };
 		58E164881B533531001B31F0 /* STVTeamMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E164871B533531001B31F0 /* STVTeamMember.m */; };
+		58E164C31B537EAF001B31F0 /* SlackTeamViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 58E164C11B537EAF001B31F0 /* SlackTeamViewer.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		58E164841B53315F001B31F0 /* STVDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STVDataManager.m; sourceTree = "<group>"; };
 		58E164861B533531001B31F0 /* STVTeamMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STVTeamMember.h; sourceTree = "<group>"; };
 		58E164871B533531001B31F0 /* STVTeamMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STVTeamMember.m; sourceTree = "<group>"; };
+		58E164C21B537EAF001B31F0 /* SlackTeamViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SlackTeamViewer.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				58E1645F1B531473001B31F0 /* STVRootViewController.m */,
 				58E164861B533531001B31F0 /* STVTeamMember.h */,
 				58E164871B533531001B31F0 /* STVTeamMember.m */,
+				58E164C11B537EAF001B31F0 /* SlackTeamViewer.xcdatamodeld */,
 				58E164611B531473001B31F0 /* Main.storyboard */,
 				58E164641B531473001B31F0 /* Images.xcassets */,
 				58E164661B531473001B31F0 /* LaunchScreen.xib */,
@@ -242,6 +245,7 @@
 				58E164601B531473001B31F0 /* STVRootViewController.m in Sources */,
 				58E164881B533531001B31F0 /* STVTeamMember.m in Sources */,
 				58E164851B53315F001B31F0 /* STVDataManager.m in Sources */,
+				58E164C31B537EAF001B31F0 /* SlackTeamViewer.xcdatamodeld in Sources */,
 				58E164821B532C40001B31F0 /* STVMemberDetailViewController.m in Sources */,
 				58E1645D1B531473001B31F0 /* STVAppDelegate.m in Sources */,
 				58E1645A1B531473001B31F0 /* main.m in Sources */,
@@ -454,6 +458,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		58E164C11B537EAF001B31F0 /* SlackTeamViewer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				58E164C21B537EAF001B31F0 /* SlackTeamViewer.xcdatamodel */,
+			);
+			currentVersion = 58E164C21B537EAF001B31F0 /* SlackTeamViewer.xcdatamodel */;
+			path = SlackTeamViewer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 58E1644C1B531473001B31F0 /* Project object */;
 }

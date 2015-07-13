@@ -58,7 +58,7 @@
 	// Stop the spinner
 	[[self spinner] stopAnimating];
 	[[self spinner] removeFromSuperview];
-	
+
 	// Display the member list view
 	UITableView *memberListView = [[self memberListViewController] tableView];
 	[[self view] addSubview:memberListView];
