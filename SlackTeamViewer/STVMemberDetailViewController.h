@@ -12,6 +12,6 @@
 
 @interface STVMemberDetailViewController : UIViewController
 
-@property (strong) STVTeamMember *member;
+- (void)updateDetailViewWithMember:(STVTeamMember *)teamMember;
 
 @end

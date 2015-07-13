@@ -78,7 +78,7 @@
 
 - (void)didSelectMemberAtIndex:(NSUInteger)index
 {
-	[[self memberDetailViewController] setMember:[[STVDataManager defaultManager] memberAtIndex:index]];
+	[[self memberDetailViewController] updateDetailViewWithMember:[[STVDataManager defaultManager] memberAtIndex:index]];
 	[[self navigationController] pushViewController:[self memberDetailViewController] animated:YES];
 }
 
