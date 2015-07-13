@@ -8,12 +8,15 @@
 
 #import "STVAppDelegate.h"
 
+#import "STVDataManager.h"
+
 
 @implementation STVAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	// Override point for customization after application launch.
+	[[STVDataManager defaultManager] loadData];
+
 	return YES;
 }
 

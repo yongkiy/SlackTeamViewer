@@ -8,8 +8,11 @@
 
 #import "STVMemberListViewController.h"
 
+#import "STVDataManager.h"
+#import "STVTeamMember.h"
+
 #define kCellReuseIdentifier @"memberListCell"
-#define kCellRowHeight 50
+#define kCellRowHeight 96
 
 
 @implementation STVMemberListViewController
@@ -21,17 +24,24 @@
     [super viewDidLoad];
 	
 	[[self tableView] setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-
 	[[self tableView] registerClass:[UITableViewCell class] forCellReuseIdentifier:kCellReuseIdentifier];
 	
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	[self registerForNotifications];
 }
 
-#pragma mark - Table view data source
+- (void)registerForNotifications
+{
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(teamMemberDataWasLoaded:)
+												 name:STVDataWasLoadedNotification
+											   object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(teamMemberImageWasLoaded:)
+												 name:STVImageWasLoadedNotification
+											   object:nil];
+}
+
+#pragma mark - Table View Data Source and Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -40,7 +50,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [[STVDataManager defaultManager] memberCount];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -51,7 +61,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReuseIdentifier forIndexPath:indexPath];
-    
+	STVTeamMember *teamMember = [[STVDataManager defaultManager] memberAtIndex:[indexPath indexAtPosition:1]];
+	if (teamMember != nil)
+	{
+		[[cell textLabel] setText:[teamMember realName]];
+	}
+
     return cell;
 }
 
@@ -61,43 +76,19 @@
 	[[self delegate] didSelectMemberAtIndex:[indexPath indexAtPosition:1]];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+#pragma mark - Cell update
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)teamMemberDataWasLoaded:(NSNotification *)notification
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+	NSNumber *row = [notification userInfo][STVMemberIndexKey];
+	UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:[row intValue] inSection:0]];
+	STVTeamMember *teamMember = [[STVDataManager defaultManager] memberAtIndex:[row intValue]];
+	[[cell textLabel] setText:[teamMember realName]];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (void)teamMemberImageWasLoaded:(NSNotification *)notification
 {
+	
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 @end

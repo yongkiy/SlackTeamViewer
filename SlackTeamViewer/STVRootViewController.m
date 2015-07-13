@@ -8,6 +8,7 @@
 
 #import "STVRootViewController.h"
 
+#import "STVDataManager.h"
 #import "STVMemberListViewController.h"
 #import "STVMemberDetailViewController.h"
 
@@ -15,6 +16,8 @@
 
 @property (strong)STVMemberListViewController *memberListViewController;
 @property (strong)STVMemberDetailViewController *memberDetailViewController;
+@property (strong)UIActivityIndicatorView *spinner;
+
 @end
 
 @implementation STVRootViewController
@@ -28,6 +31,35 @@
 	// Setup the member list view
 	[self setMemberListViewController:[STVMemberListViewController new]];
 	[[self memberListViewController] setDelegate:self];
+
+	// Setup the member detail view
+	[self setMemberDetailViewController:[STVMemberDetailViewController new]];
+	
+	// Setup the spinner
+	[self setSpinner:[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray]];
+	[[self spinner] setFrame:[[self view] bounds]];
+	[[self spinner] setBackgroundColor:[UIColor whiteColor]];
+	[[self view] addSubview:[self spinner]];
+	[[self spinner] startAnimating];
+
+	[self registerForNotifications];
+}
+
+- (void)registerForNotifications
+{
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(displayMemberListView:)
+												 name:STVDataManagerReadyNotification
+											   object:nil];
+}
+
+- (void)displayMemberListView:(NSNotification *)notification
+{
+	// Stop the spinner
+	[[self spinner] stopAnimating];
+	[[self spinner] removeFromSuperview];
+	
+	// Display the member list view
 	UITableView *memberListView = [[self memberListViewController] tableView];
 	[[self view] addSubview:memberListView];
 	[memberListView setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -40,21 +72,13 @@
 																		options:0
 																		metrics:nil
 																		  views:viewBindings]];
-
-	// Setup the member detail view
-	[self setMemberDetailViewController:[STVMemberDetailViewController new]];
 }
 
-- (void)didReceiveMemoryWarning
-{
-	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
-}
-
-#pragma mark - 
+#pragma mark - STVMemberListViewControllerDelegate Methods
 
 - (void)didSelectMemberAtIndex:(NSUInteger)index
 {
+	[[self memberDetailViewController] setMember:[[STVDataManager defaultManager] memberAtIndex:index]];
 	[[self navigationController] pushViewController:[self memberDetailViewController] animated:YES];
 }
 

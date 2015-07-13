@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class STVTeamMember;
+
 @interface STVMemberDetailViewController : UIViewController
+
+@property (strong) STVTeamMember *member;
 
 @end
